@@ -9,13 +9,15 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import Count from './components/Count.vue'
+import store from './store'
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld,
-    Count
-  }
+    name: 'app',
+    store,
+    components: {
+      HelloWorld,
+      Count
+   }
 }
 </script>
 

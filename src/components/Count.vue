@@ -11,14 +11,12 @@
 </template>
 
 <script>
-    import store from '../store.js';
-
     export default {
         name: 'Count',
         //
         computed: {
             count () {
-                return store.state.count
+                return this.$store.state.count
             }
         },
         // действия
