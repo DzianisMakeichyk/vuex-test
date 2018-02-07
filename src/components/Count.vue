@@ -22,10 +22,10 @@
         // действия
         methods: {
             increment () {
-                store.commit('increment')
+                this.$store.commit('increment', 10)
             },
             decrement () {
-                store.commit('decrement')
+                this.$store.commit('decrement')
             }
         }
     }

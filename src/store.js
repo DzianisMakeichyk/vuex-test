@@ -8,7 +8,7 @@ export default new Vuex.Store({
         count: 100
     },
     mutations: {
-        increment: state => state.count++,
+        increment: (state, n) => state.count += n,
         decrement: state => state.count--
     }
 })
