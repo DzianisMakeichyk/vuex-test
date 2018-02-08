@@ -2,13 +2,28 @@
   <div id="app">
     <img src="./assets/logo.png">
     <!--<HelloWorld msg="Welcome to Your Vue.js App"/>-->
-    <p>
-      <router-link :to="{name: 'Count'}">Count</router-link>
-      <router-link :to="{name: 'Animation'}">Animation</router-link>
-    </p>
-    <router-view>
 
-    </router-view>
+      <div>
+        <router-link :to="{name: 'Count'}" >
+          Count
+        </router-link>
+        <br/>
+        <router-link :to="{name: 'Animation'}" >
+          Animation
+        </router-link>
+      </div>
+
+
+
+
+      <div
+        class="company"
+      >
+        <transition mode="out-in" name="fade">
+          <router-view></router-view>
+        </transition>
+      </div>
+
     <!--<Count/>-->
     <!--<Animation/>-->
   </div>
@@ -29,7 +44,12 @@ export default {
       HelloWorld,
       Count,
       Animation
-   }
+   },
+    computed: {
+        show () {
+            return this.$store.state.show
+        }
+    },
 }
 </script>
 
@@ -42,4 +62,20 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+.text__first-bg{
+  background-color: #5fbff9;
+}
+
+.company {
+  backface-visibility: hidden;
+  z-index: 1;
+}
+.fade-enter-active, .fade-leave-active {
+  /*transition: opacity .5s;*/
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  /*opacity: 0;*/
+}
+
 </style>
