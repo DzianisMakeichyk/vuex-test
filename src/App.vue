@@ -19,7 +19,7 @@
       <div
         class="company"
       >
-        <transition mode="out-in" name="fade">
+        <transition name="company">
           <router-view></router-view>
         </transition>
       </div>
@@ -63,13 +63,33 @@ export default {
   margin-top: 60px;
 }
 
-.text__first-bg{
-  background-color: #5fbff9;
-}
-
+/* base */
 .company {
   backface-visibility: hidden;
   z-index: 1;
+}
+
+/* moving */
+.company-move {
+  transition: all 600ms ease-in-out 50ms;
+}
+
+/* appearing */
+.company-enter-active {
+  transition: all 400ms ease-out;
+}
+
+/* disappearing */
+.company-leave-active {
+  transition: all 200ms ease-in;
+  position: absolute;
+  z-index: 0;
+}
+
+/* appear at / disappear to */
+.company-enter,
+.company-leave-to {
+  opacity: 0;
 }
 .fade-enter-active, .fade-leave-active {
   /*transition: opacity .5s;*/

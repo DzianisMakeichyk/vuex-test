@@ -21,9 +21,6 @@
                 firstBg = document.querySelectorAll('.text__first-bg'),
                 word  = document.querySelectorAll('.text__word');
 
-            console.log(firstBg)
-            console.log('Hello')
-
             TimelineLite.to([firstBg], 0.3, {scaleX:1});
             TimelineLite.to([word], 0.1, {opacity:1}, "-=0.1");
             TimelineLite.to([firstBg], 0.3, {scaleX:0});
@@ -32,7 +29,6 @@
 </script>
 
 <style>
-
     .text{
         display: inline-block;
         font-size: 15vmin;
@@ -43,7 +39,7 @@
         position: relative;
     }
 
-    .text__word{
+    .text__word {
         opacity: 0;
     }
 
@@ -57,6 +53,10 @@
         z-index: 100;
         transform-origin: left;
         transform: scaleX(0);
+    }
+
+    .text__first-bg {
+        background-color: #5fbff9;
     }
 
 </style>
