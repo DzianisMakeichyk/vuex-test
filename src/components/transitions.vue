@@ -36,18 +36,18 @@
                 });
             },
             leave: function leave(el, done) {
-                TweenMax.fromTo(el.childNodes[0].childNodes[2], 0.8, {
+                TweenMax.fromTo(el.childNodes[0].childNodes[2], 0.01, {
                     scaleX:1
                 }, {
                     scaleX:0
                 });
-                TweenMax.fromTo(el.childNodes[0].childNodes[0], 0.8, {
+                TweenMax.fromTo(el.childNodes[0].childNodes[0], 0.01, {
                     opacity:1
                 }, {
                     opacity:0
                 })
 
-                TweenMax.fromTo(el, 1, {
+                TweenMax.fromTo(el, 0.01, {
                     autoAlpha: 1,
 //                    scale: 1
                 }, {
