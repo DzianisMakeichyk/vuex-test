@@ -3,26 +3,28 @@
     <img src="./assets/logo.png">
     <!--<HelloWorld msg="Welcome to Your Vue.js App"/>-->
 
-      <div>
-        <router-link :to="{name: 'Count'}" >
+      <div
+              v-on:click="menuToggle"
+      >
+        <router-link
+                :to="{name: 'Count'}"
+        >
           Count
         </router-link>
         <br/>
-        <router-link :to="{name: 'Animation'}" >
+        <router-link
+                :to="{name: 'Animation'}"
+                v-on:click="menuToggle"
+        >
           Animation
         </router-link>
       </div>
 
+    <Transitions>
 
-
-
-      <div
-        class="company"
-      >
-        <transition name="company">
           <router-view></router-view>
-        </transition>
-      </div>
+
+    </Transitions>
 
     <!--<Count/>-->
     <!--<Animation/>-->
@@ -32,9 +34,10 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import Count from './components/Count.vue'
-import Animation from './components/animation.vue'
+import Transitions from './components/transitions.vue'
 import store from './store'
 import router from './router/index'
+
 
 export default {
     name: 'app',
@@ -43,13 +46,18 @@ export default {
     components: {
       HelloWorld,
       Count,
-      Animation
+      Transitions
    },
     computed: {
         show () {
             return this.$store.state.show
         }
     },
+    methods: {
+        menuToggle: function(){
+            this.$store.state.isActive = !this.$store.state.isActive;
+        }
+    }
 }
 </script>
 
@@ -69,21 +77,11 @@ export default {
   z-index: 1;
 }
 
-/* moving */
-.company-move {
-  transition: all 600ms ease-in-out 50ms;
-}
-
-/* appearing */
-.company-enter-active {
-  transition: all 400ms ease-out;
-}
-
-/* disappearing */
-.company-leave-active {
-  transition: all 200ms ease-in;
+.active-animation {
   position: absolute;
-  z-index: 0;
+  top: 30px;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 /* appear at / disappear to */

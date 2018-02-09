@@ -1,31 +1,19 @@
 <template>
-    <div>
-        <p class="text">
-          <span class="text__first">
-            <span class="text__word">
-              Hello
-            </span>
-            <span class="text__first-bg"></span>
-          </span>
-        </p>
+    <div class="page " v-bind:class="{ slide: this.$store.state.isActive }">
+        <div class="center">
+            <p class="text">
+              <span class="text__first">
+                <span class="text__word">
+                  100
+                </span>
+                <span class="text__first-bg"></span>
+              </span>
+            </p>
+        </div>
     </div>
 </template>
 
 <script>
-    import TimelineLite from 'gsap'
-
-    export default {
-        name: 'Animation',
-        mounted() {
-            var tl = new TimelineLite({delay: 1}),
-                firstBg = document.querySelectorAll('.text__first-bg'),
-                word  = document.querySelectorAll('.text__word');
-
-            TimelineLite.to([firstBg], 0.3, {scaleX:1});
-            TimelineLite.to([word], 0.1, {opacity:1}, "-=0.1");
-            TimelineLite.to([firstBg], 0.3, {scaleX:0});
-        }
-    }
 </script>
 
 <style>
@@ -40,7 +28,7 @@
     }
 
     .text__word {
-        opacity: 0;
+        opacity: 1;
     }
 
     .text__first-bg {
