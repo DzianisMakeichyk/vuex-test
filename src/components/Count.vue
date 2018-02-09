@@ -1,26 +1,19 @@
 <template>
-
-    <div class="page " v-bind:class="{ slide: this.$store.state.isActive }">
-        <div class="center">
-            <p class="text">
-              <span class="text__first">
-                <span class="text__word">
-                  100
-                </span>
-                <span class="text__first-bg"></span>
-              </span>
-            </p>
-        </div>
-    </div>
-
+    <slotTm>
+        Hello
+    </slotTm>
 </template>
 
 <script>
     import TimelineLite from 'gsap'
+    import slotTm from './slot'
 
     export default {
         name: 'Count',
         //
+        components: {
+          slotTm
+        },
         computed: {
             count () {
                 return this.$store.state.count

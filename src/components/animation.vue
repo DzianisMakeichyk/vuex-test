@@ -1,19 +1,20 @@
 <template>
-    <div class="page " v-bind:class="{ slide: this.$store.state.isActive }">
-        <div class="center">
-            <p class="text">
-              <span class="text__first">
-                <span class="text__word">
-                  100
-                </span>
-                <span class="text__first-bg"></span>
-              </span>
-            </p>
-        </div>
-    </div>
+    <slotTm>
+        100
+    </slotTm>
 </template>
 
 <script>
+    import slotTm from './slot'
+
+    export default {
+        name: 'anima',
+
+        components: {
+            slotTm
+        }
+    }
+
 </script>
 
 <style>
