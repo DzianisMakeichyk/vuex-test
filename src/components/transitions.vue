@@ -22,40 +22,30 @@
 
         methods: {
             enter: function enter(el, done) {
-                console.log(el.childNodes[0].childNodes[2])
-                TweenMax.fromTo(el.childNodes[0].childNodes[2], 0.8, {scaleX:1}, {scaleX:0})
-                TweenMax.fromTo(el.childNodes[0].childNodes[0], 0.8, {opacity:0}, {opacity:1})
-//                TweenMax.fromTo(firstBg, 0.2, {scaleX:1}, {scaleX:0}, 'rrr')
-                TweenMax.fromTo(el, 1, {
-                    autoAlpha: 1
-                }, {
-                    autoAlpha: 1,
-//                    transformOrigin: '50% 50%',
-//                    ease: Power4.easeOut,
-                    onComplete: done
-                });
+                TweenMax.fromTo(el.childNodes[0].childNodes[2], 1.4, {scaleX:1}, {scaleX:0,ease: Power1.easeOut,})
+                TweenMax.fromTo(el.childNodes[0].childNodes[0], 0.2, {opacity:0}, {opacity:1})
             },
             leave: function leave(el, done) {
-                TweenMax.fromTo(el.childNodes[0].childNodes[2], 0.01, {
-                    scaleX:1
-                }, {
+                TweenMax.fromTo(el.childNodes[0].childNodes[2], 1.4, {
                     scaleX:0
+                }, {
+                    scaleX:1,
+                    ease: Power1.easeOut,
+                    onComplete: done
                 });
-                TweenMax.fromTo(el.childNodes[0].childNodes[0], 0.01, {
+                TweenMax.fromTo(el.childNodes[0].childNodes[0], 1.4, {
+
                     opacity:1
                 }, {
                     opacity:0
-                })
-
-                TweenMax.fromTo(el, 0.01, {
+                });
+                TweenMax.fromTo(el.childNodes[0].childNodes[0], 0.04, {
                     autoAlpha: 1,
-//                    scale: 1
                 }, {
                     autoAlpha: 0,
-//                    scale: 0.8,
-//                    ease: Power4.easeOut,
                     onComplete: done
-                });
+                })
+
             }
         }
     }
