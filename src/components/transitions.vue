@@ -14,8 +14,7 @@
 </template>
 
 <script>
-    import { TweenMax, TimelineLite } from 'gsap'
-    let tl = new TimelineLite({delay: 1})
+    import TweenMax from 'gsap'
     let firstEnter = false
 
     export default {
