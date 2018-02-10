@@ -24,8 +24,8 @@
         methods: {
             enter: function enter(el, done) {
                 let firstBg = el.childNodes[0].childNodes[2]
-                let word  = el.childNodes[0].childNodes[0]
-                if(firstEnter === false){
+
+                if(!firstEnter){
                     TweenMax.fromTo(firstBg, .4, {
                         scaleX:0,
                     }, {
@@ -35,37 +35,22 @@
                     });
                     firstEnter = true
                 } else {
-                    TweenMax.fromTo(firstBg, .04, {
-                        scaleX:1,
-                    }, {
-                        scaleX:1,
+                    TweenMax.to(firstBg, .04, {
                         ease: Power1.easeOut,
                         onComplete: done
                     });
                 }
-//                TweenMax.fromTo(word, 1.04, {
-//                    opacity: 0,
-//                }, {
-//                    opacity:0,
-//                })
             },
             leave: function leave(el, done) {
                 let firstBg = el.childNodes[0].childNodes[2]
-                let word  = el.childNodes[0].childNodes[0]
 
                 TweenMax.fromTo(firstBg, .4, {
                     scaleX:0,
                 }, {
                     scaleX:1,
                     ease: Power1.easeOut,
-                                        onComplete: done
+                    onComplete: done
                 });
-//                TweenMax.fromTo(word, 1.04, {
-//                    opacity: 1,
-//                }, {
-//                    opacity:1,
-//                    onComplete: done
-//                })
             },
             afterEnter: function leave(el, done) {
                 let firstBg = el.childNodes[0].childNodes[2]
@@ -83,7 +68,6 @@
                 }, {
                     opacity: 1,
                 })
-
             }
         }
     }

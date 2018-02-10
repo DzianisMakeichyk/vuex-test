@@ -1,67 +1,40 @@
 <template>
-    <p class="text">
-      <span class="text__first">
-        <span class="text__word">
-          <slot></slot>
-        </span>
-        <span class="text__first-bg"></span>
-      </span>
-    </p>
+        <p class="text container-reveal">
+          <span class="text__first">
+            <span class="text__word">
+              <slot></slot>
+            </span>
+            <span class="text__first-bg"></span>
+          </span>
+        </p>
 </template>
 
 <style lang="scss">
+    .container-reveal {
+        width: 100%;
+        max-width: 1000px;
+        position: relative;
+        margin: 0 auto;
+    }
     .text{
         display: inline-block;
         font-size: 15vmin;
         line-height: 1.205;
-    }
 
-    .text__first,
-    .text__second{
-        position: relative;
-    }
+        &__word {
+            opacity: 0;
+        }
 
-    .text__word{
-        opacity: 0;
-    }
-
-    .text__first-bg,
-    .text__second-bg{
-        display: block;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        left: 0;
-        top: 0;
-        z-index: 100;
-        transform-origin: left;
-        transform: scaleX(0);
-    }
-
-    .text__first-bg{
-        background-color: #5fbff9;
-    }
-
-    .text__second-bg{
-        background-color: #f06543;
-    }
-
-    .text__second{
-        margin-left: 15vmin;
-    }
-
-    .restart{
-        position: absolute;
-        font-size: 12px;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: #fff;
-        border: none;
-        border-bottom: 1px dotted grey;
-        padding: 0;
-        margin: 0 auto 2%;
-        cursor: pointer;
-        color: grey;
+        &__first-bg {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 100;
+            transform-origin: left;
+            background-color: #5fbff9;
+        }
     }
 </style>
