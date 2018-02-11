@@ -1,20 +1,47 @@
 <template>
         <p class="text container-reveal">
-          <span class="text__first">
+          <span class="text__first"  ref="scroll_start">
             <span class="text__word">
               <slot></slot>
+            </span>
+            <span class="text__first-bg"></span>
+          </span>
+          <span class="text__first"  ref="scroll_start">
+            <span class="text__word">
             </span>
             <span class="text__first-bg"></span>
           </span>
         </p>
 </template>
 
+<script>
+    import ScrollMagic from 'scrollmagic'
+    import setTween from 'scrollmagic'
+    import addTo from 'scrollmagic'
+
+    let scrollMagicController = new ScrollMagic.Controller();
+
+    export default {
+        name: 'slotTM',
+
+        mounted() {
+            let scrollStart = this.$refs.scroll_start;
+
+            console.log(setTween)
+
+        setTween(scrollStart);
+        addTo(scrollMagicController);
+
+        }
+    }
+</script>
+
 <style lang="scss">
     .container-reveal {
         width: 100%;
         max-width: 1000px;
         position: relative;
-        margin: 0 auto;
+        margin: 750px auto 0;
     }
     .text{
         display: inline-block;
