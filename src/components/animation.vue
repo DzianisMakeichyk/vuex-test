@@ -1,6 +1,8 @@
 <template>
     <slotTm>
-        100
+        <p id="animan">
+            1000
+        </p>
     </slotTm>
 </template>
 
