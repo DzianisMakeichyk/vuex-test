@@ -27,10 +27,12 @@
         mounted() {
             let scrollStart = this.$refs.scroll_start;
 
-            console.log(setTween)
-
-        setTween(scrollStart);
-        addTo(scrollMagicController);
+            new ScrollMagic.Scene({
+                triggerElement: scrollStart,
+                offset: 0 /* offset the trigger Npx below scene's top */
+            })
+                .setPin(scrollStart) // pins the element for the the scene's duration
+                .addTo(scrollMagicController); // assign the scene to the controller
 
         }
     }
