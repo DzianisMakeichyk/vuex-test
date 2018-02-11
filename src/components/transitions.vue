@@ -15,7 +15,12 @@
 
 <script>
     import TweenMax from 'gsap'
-    let firstEnter = false
+    import ScrollMagic from 'scrollmagic'
+    import setTween from 'scrollmagic'
+    import addTo from 'scrollmagic'
+
+    let firstEnter = false;
+    let scrollMagicController = new ScrollMagic.Controller();
 
     export default {
         name: 'transitionTM',
@@ -68,6 +73,19 @@
                     opacity: 1,
                 })
             }
+        },
+        mounted() {
+            let scrollStart = this.$refs.scroll_start;
+
+            console.log(this)
+
+            new ScrollMagic.Scene({
+                triggerElement: scrollStart,
+                offset: 0 /* offset the trigger Npx below scene's top */
+            })
+                .setPin(scrollStart) // pins the element for the the scene's duration
+                .addTo(scrollMagicController); // assign the scene to the controller
+
         }
     }
 </script>
