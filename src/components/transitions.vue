@@ -54,6 +54,7 @@
             },
             leave: function leave(el, done) {
                 let firstBg = el.childNodes[0].childNodes[2]
+                this.$store.state.leaveScroll = false;
 
                 TweenMax.fromTo(firstBg, .4, {
                     scaleX:0,
