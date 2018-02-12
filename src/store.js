@@ -8,7 +8,9 @@ export default new Vuex.Store({
         count: 100,
         show: true,
         isActive: false,
-        transitionName: ''
+        transitionName: '',
+
+        leaveScroll: false,
     },
     mutations: {
         increment: (state, n) => state.count += n,

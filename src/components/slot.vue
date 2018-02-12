@@ -1,5 +1,5 @@
 <template>
-        <p class="text container-reveal" ref="scroll_start">
+        <p class="text container-reveal">
           <span class="text__first">
             <span class="text__word">
               <slot></slot>
@@ -9,13 +9,16 @@
         </p>
 </template>
 
-<style lang="scss">
-    .container-reveal {
-        width: 100%;
-        max-width: 1000px;
-        position: relative;
-        margin: 750px auto 0;
+<script>
+    import Waypoint from 'waypoints/lib/noframework.waypoints.min'
+
+    export default {
+        name: 'slotTM',
     }
+
+</script>
+
+<style lang="scss">
     .text{
         display: inline-block;
         font-size: 15vmin;
