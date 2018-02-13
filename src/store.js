@@ -9,6 +9,7 @@ export default new Vuex.Store({
         show: true,
         isActive: false,
         transitionName: '',
+        data: [],
 
         leaveScroll: false,
     },

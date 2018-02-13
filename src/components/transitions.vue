@@ -1,8 +1,7 @@
 <template>
     <div>
-        <div style="height: 1000px"></div>
-        <div v-infinite-scroll="loadMore" infinite-scroll-distance="100">
-            <div v-if="this.$store.state.leaveScroll">
+        <div>
+            <!--<div v-if="this.$store.state.leaveScroll">-->
                 <transition
                         v-on:enter="enter"
                         v-on:leave="leave"
@@ -16,7 +15,7 @@
 
                 </transition>
             </div>
-        </div>
+        <!--</div>-->
     </div>
 
 </template>
@@ -30,9 +29,6 @@
         name: 'transitionTM',
 
         methods: {
-            loadMore: function() {
-                this.$store.state.leaveScroll = true;
-            },
             enter: function enter(el, done) {
                 let firstBg = el.childNodes[0].childNodes[2]
 
@@ -54,7 +50,7 @@
             },
             leave: function leave(el, done) {
                 let firstBg = el.childNodes[0].childNodes[2]
-                this.$store.state.leaveScroll = false;
+//                this.$store.state.leaveScroll = false;
 
                 TweenMax.fromTo(firstBg, .4, {
                     scaleX:0,
