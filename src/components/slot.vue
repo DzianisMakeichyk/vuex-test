@@ -9,7 +9,7 @@
 
         <div style="height: 1000px"></div>
 
-        <span class="text__first animate">
+        <span class="text__first animate" :class="{inview: checkView(0)}">
             <span class="text__word">
               wow
             </span>
@@ -18,7 +18,7 @@
 
         <div style="height: 1000px"></div>
 
-        <span class="text__first animate" >
+        <span class="text__first animate" :class="{inview: checkView(1)}">
             <span class="text__word">
               wow
             </span>
@@ -47,7 +47,7 @@
                     let elTop = element.offsetTop;
                     let elBottom = element.offsetTop + element.scrollHeight;
 
-                    if(this.scrollBottom > elTop + 400 && elBottom - 100 > this.scrollTop) {
+                    if(this.scrollBottom > elTop + 300 && elBottom + 300 > this.scrollTop) {
 
                         return true;
 
@@ -71,7 +71,7 @@
             this.scrollTop = window.scrollY;
             this.scrollBottom = window.scrollY + window.innerHeight;
 
-            window.addEventListener('scroll', _.throttle(this.scrollHandler, 300));
+            window.addEventListener('scroll', _.throttle(this.scrollHandler, 100));
 
             this.animate = document.querySelectorAll(".animate");
 
@@ -88,6 +88,12 @@
 
         &__first {
             position: relative;
+
+            &.animate {
+                .text__first-bg {
+                    transition: .3s ease;
+                }
+            }
         }
 
         &__word {
@@ -105,7 +111,6 @@
             z-index: 100;
             transform-origin: left;
             background-color: #5fbff9;
-            /*transition: .3s ease;*/
         }
     }
 
@@ -117,6 +122,10 @@
 
             &__word {
                 opacity: 1;
+            }
+
+            &__first {
+
             }
         }
     }
