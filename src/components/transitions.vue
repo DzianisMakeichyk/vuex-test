@@ -1,22 +1,16 @@
 <template>
-    <div>
-        <div>
-            <!--<div v-if="this.$store.state.leaveScroll">-->
-                <transition
-                        v-on:enter="enter"
-                        v-on:leave="leave"
-                        v-on:after-enter="afterEnter"
-                        v-bind:css="false"
-                        mode="out-in"
+    <transition
+            v-on:enter="enter"
+            v-on:leave="leave"
+            v-on:after-enter="afterEnter"
+            v-bind:css="false"
+            mode="out-in"
 
-                        appear
-                >
-                    <slot></slot>
+            appear
+    >
+        <slot></slot>
 
-                </transition>
-            </div>
-        <!--</div>-->
-    </div>
+    </transition>
 
 </template>
 
@@ -37,13 +31,13 @@
                             scaleX: 0,
                         }, {
                             scaleX: 1,
-                            ease: Power1.easeOut,
+//                            ease: Power1.easeOut,
                             onComplete: done
                         });
                         firstEnter = true
                     } else {
                         TweenMax.to(firstBg, .04, {
-                            ease: Power1.easeOut,
+//                            ease: Power1.easeOut,
                             onComplete: done
                         });
                     }
@@ -56,7 +50,7 @@
                     scaleX:0,
                 }, {
                     scaleX:1,
-                    ease: Power1.easeOut,
+//                    ease: Power1.easeOut,
                     onComplete: done
                 });
             },
@@ -68,7 +62,7 @@
                         scaleX: 1,
                     }, {
                         scaleX: 0,
-                        ease: Power1.easeOut,
+//                        ease: Power1.easeOut,
                         onComplete: done
                 });
                 TweenMax.fromTo(word, .4, {

@@ -9,7 +9,7 @@
 
         <div style="height: 1000px"></div>
 
-        <span class="text__first animate" :class="{inview: checkView(0)}">
+        <span class="text__first animate">
             <span class="text__word">
               wow
             </span>
@@ -18,7 +18,7 @@
 
         <div style="height: 1000px"></div>
 
-        <span class="text__first animate" :class="{inview: checkView(1)}">
+        <span class="text__first animate" >
             <span class="text__word">
               wow
             </span>
@@ -105,7 +105,7 @@
             z-index: 100;
             transform-origin: left;
             background-color: #5fbff9;
-            transition: .3s ease;
+            /*transition: .3s ease;*/
         }
     }
 
