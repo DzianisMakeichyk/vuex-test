@@ -9,7 +9,7 @@
 
         <div style="height: 1000px"></div>
 
-        <span class="text__first animate scroll-reveal" :class="{inview: checkView(0)}">
+        <span class="text__first animate scroll-reveal ease-parallax" :class="{inview: checkView(0)}">
             <span class="text__word">
               wow
             </span>
@@ -18,7 +18,7 @@
 
         <div style="height: 1000px"></div>
 
-        <span class="text__first animate scroll-reveal" :class="{inview: checkView(1)}">
+        <span class="text__first animate scroll-reveal ease-parallax" :class="{inview: checkView(1)}">
             <span class="text__word">
               wow
             </span>
@@ -68,6 +68,18 @@
             }
         },
         mounted: function mounted() {
+            // Ease Parallax
+            let easeParallax = this.$el.querySelectorAll('.ease-parallax');
+
+            for(let i = 0; i < easeParallax.length; i++){
+                let title = easeParallax[i];
+                const speed = 0.2;
+                title.style.transform = 'translateY( calc( var(--scrollparallax) * 1px ) )';
+
+                window.addEventListener('scroll', function() {
+                    title.style.setProperty("--scrollparallax", (document.body.scrollTop || document.documentElement.scrollTop) * speed);
+                });
+            }
 
             // ScrollReveal
             let sr = ScrollReveal({ reset: true })
@@ -80,9 +92,9 @@
 
             window.addEventListener('scroll', _.throttle(this.scrollHandler, 100));
 
-            setTimeout(() => {
+//            setTimeout(() => {
                 this.animate = document.querySelectorAll(".animate");
-            }, 2000)
+//            }, 2000)
 
         }
     }
