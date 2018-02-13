@@ -9,7 +9,7 @@
 
         <div style="height: 1000px"></div>
 
-        <span class="text__first animate" :class="{inview: checkView(0)}">
+        <span class="text__first animate scroll-reveal" :class="{inview: checkView(0)}">
             <span class="text__word">
               wow
             </span>
@@ -18,7 +18,7 @@
 
         <div style="height: 1000px"></div>
 
-        <span class="text__first animate" :class="{inview: checkView(1)}">
+        <span class="text__first animate scroll-reveal" :class="{inview: checkView(1)}">
             <span class="text__word">
               wow
             </span>
@@ -29,6 +29,7 @@
 
 <script>
     import _ from 'lodash'
+    import ScrollReveal from 'scrollreveal'
 
     export default {
         name: 'slotTM',
@@ -47,7 +48,7 @@
                     let elTop = element.offsetTop;
                     let elBottom = element.offsetTop + element.scrollHeight;
 
-                    if(this.scrollBottom > elTop + 300 && elBottom + 300 > this.scrollTop) {
+                    if(this.scrollBottom > elTop + 300 && elBottom + 250 > this.scrollTop) {
 
                         return true;
 
@@ -68,12 +69,20 @@
         },
         mounted: function mounted() {
 
+            // ScrollReveal
+            let sr = ScrollReveal({ reset: true })
+
+            sr.reveal('.scroll-reveal', { distance: '20px', viewFactor: 0.5 })
+
+            // Reveal Animation
             this.scrollTop = window.scrollY;
             this.scrollBottom = window.scrollY + window.innerHeight;
 
             window.addEventListener('scroll', _.throttle(this.scrollHandler, 100));
 
-            this.animate = document.querySelectorAll(".animate");
+            setTimeout(() => {
+                this.animate = document.querySelectorAll(".animate");
+            }, 2000)
 
         }
     }
@@ -122,10 +131,6 @@
 
             &__word {
                 opacity: 1;
-            }
-
-            &__first {
-
             }
         }
     }
