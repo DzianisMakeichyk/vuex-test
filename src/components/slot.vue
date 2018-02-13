@@ -9,7 +9,7 @@
 
         <div style="height: 1000px"></div>
 
-        <span class="text__first animate" :class="{inview: checkView(0)}" ref="reveal_el">
+        <span class="text__first animate" :class="{inview: checkView(0)}">
             <span class="text__word">
               wow
             </span>
@@ -18,7 +18,7 @@
 
         <div style="height: 1000px"></div>
 
-        <span class="text__first" ref="reveal_el">
+        <span class="text__first animate" :class="{inview: checkView(1)}">
             <span class="text__word">
               wow
             </span>
@@ -34,7 +34,6 @@
         name: 'slotTM',
 
         data: () => ({
-            hi: 'hi',
             scrollTop: '',
             scrollBottom: '',
             animate: ''
@@ -44,11 +43,11 @@
             checkView: function checkView(e) {
                 if (this.animate) {
 
-                    var element = this.animate[e];
-                    var elTop = element.offsetTop;
-                    var elBottom = element.offsetTop + element.scrollHeight;
+                    let element = this.animate[e];
+                    let elTop = element.offsetTop;
+                    let elBottom = element.offsetTop + element.scrollHeight;
 
-                    if (this.scrollBottom > elTop + 200 && elBottom - 100 > this.scrollTop) {
+                    if(this.scrollBottom > elTop + 400 && elBottom - 100 > this.scrollTop) {
 
                         return true;
 
@@ -93,6 +92,7 @@
 
         &__word {
             opacity: 0;
+            transition: .3s ease;
         }
 
         &__first-bg {
@@ -105,6 +105,20 @@
             z-index: 100;
             transform-origin: left;
             background-color: #5fbff9;
+            transition: .3s ease;
         }
     }
+
+    .inview {
+        .text {
+            &__first-bg {
+                transform:scaleX(0);
+            }
+
+            &__word {
+                opacity: 1;
+            }
+        }
+    }
+
 </style>
