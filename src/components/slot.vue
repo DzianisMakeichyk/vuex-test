@@ -48,7 +48,7 @@
                     let elTop = element.offsetTop;
                     let elBottom = element.offsetTop + element.scrollHeight;
 
-                    if(this.scrollBottom > elTop + 300 && elBottom + 250 > this.scrollTop) {
+                    if (this.scrollBottom > elTop + 300 && elBottom + 250 > this.scrollTop) {
 
                         return true;
 
@@ -84,7 +84,7 @@
             // ScrollReveal
             let sr = ScrollReveal({ reset: true })
 
-            sr.reveal('.scroll-reveal', { distance: '20px', viewFactor: 0.5 })
+            sr.reveal('.scroll-reveal', { viewFactor: 0.5 })
 
             // Reveal Animation
             this.scrollTop = window.scrollY;

@@ -25,7 +25,6 @@
         methods: {
             enter: function enter(el, done) {
                 let firstBg = el.childNodes[0].childNodes[2]
-
                     if (!firstEnter) {
                         TweenMax.fromTo(firstBg, .4, {
                             scaleX: 0,
@@ -41,6 +40,7 @@
                             onComplete: done
                         });
                     }
+
             },
             leave: function leave(el, done) {
                 let firstBg = el.childNodes[0].childNodes[2]
